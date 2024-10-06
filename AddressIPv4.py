@@ -17,7 +17,6 @@ class AddressIPv4:
         return validStatus
     
     def getString(self):
-        #??? nepochopil jsem, k cemu je tahle funkce, ale dobre
         return self.address
 
     def getAsBinaryString(self):
@@ -31,16 +30,11 @@ class AddressIPv4:
             octcount = 0
             self.ls.reverse()
             for x in self.ls:
-                # print(int(x))
                 if int(x) ==  0:
-                    # print("Lyup")
-                    # print(octcount)
                     if octcount < 8:
-                        # print("henshin")
                         while octcount < 8:
                             lsb_temp.append("0")
                             octcount += 1
-                            # print("appended 0")
                 while int(x) > 0:
                     if int(x) % 2 == 0:
                         lsb_temp.append("0")
@@ -48,19 +42,11 @@ class AddressIPv4:
                         lsb_temp.append("1")
                     octcount += 1
                     x = int(x) // 2
-                    # print(lsb_temp)
-                # print("kookot", octcount)
                 if octcount < 8:
-                    # print(lsb_temp)
-                    # print("henshin")
                     while octcount < 8:
                         lsb_temp.append("0")
                         octcount += 1
-                        # print("appended 0")
-                # print("afterall count", octcount)
                 octcount = 0
-                # print(lsb_temp, "afterapp")
-            # print("lsb_temp", lsb_temp) 
             for x in lsb_temp:
                 count += 1
                 if count > 8:
@@ -75,7 +61,6 @@ class AddressIPv4:
         self.lsb_nodots = "".join(lsb_temp)
         self.lsb_nodots = int(self.lsb_nodots)
         lsb_result = "".join(lsb)
-        # print(lsb)
         return lsb_result
 
     def getOctet(self, number=0):
